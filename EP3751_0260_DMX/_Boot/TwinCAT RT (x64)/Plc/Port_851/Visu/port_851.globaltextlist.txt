@@ -1,0 +1,12 @@
+Id;Default
+216;%.3f
+253;%d
+686;%d°
+671;Abgleich
+696;Bytes: %d
+952;FThrh: %f
+88;FWeight: %f
+277;FWindow: %d
+666;Read FIFO
+614;Reset
+479;Reset Winkel
