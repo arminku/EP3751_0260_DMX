@@ -83,6 +83,7 @@ VAR
 	fusionWeight : LREAL := 1024;
 	fusionWindow: INT := 50;
 	fusionHorizontThreshold :LREAL := 0.4;
+	fCycleTime 				: LREAL := 0.001; // in s
 
 
 	//DMX
@@ -104,7 +105,7 @@ END_VAR
 	IF corrAxis[z] > 32000 THEN corrAxis[z] := 0; END_IF;
 	IF corrAxis[z] < -32000 THEN corrAxis[z] := 0; END_IF;
 
-	Integrator[z] := Integrator[z] + (corrAxis[z] / (1000.0*(32768/dps)*90*4));
+	Integrator[z] := Integrator[z] + (corrAxis[z] / ((1/fCycleTime)*(32768/dps)*90*4));
 	Deg[z] := Integrator[z] * 360.0;
 	DegMovingHead[z] := REAL_TO_INT(Deg[z]) MOD 360;
 
@@ -287,7 +288,9 @@ fbDMX(
       </Implementation>
     </Action>
     <LineIds Name="MAIN">
-      <LineId Id="594" Count="145" />
+      <LineId Id="594" Count="6" />
+      <LineId Id="932" Count="0" />
+      <LineId Id="602" Count="137" />
       <LineId Id="834" Count="3" />
       <LineId Id="35" Count="0" />
       <LineId Id="44" Count="0" />
