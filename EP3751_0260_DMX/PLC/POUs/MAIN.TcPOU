@@ -50,7 +50,7 @@ VAR
 	rcvBytes : ARRAY [0..15] OF INT;
 	bytesLeft: INT;
 	
-	dps : INT := 2000;
+	dps : LREAL := 2000.0; // full scale range of gyro in °/s (in prototype this is static)
 	
 	(* state variables *)
 	actualRoll : LREAL;
@@ -105,7 +105,8 @@ END_VAR
 	IF corrAxis[z] > 32000 THEN corrAxis[z] := 0; END_IF;
 	IF corrAxis[z] < -32000 THEN corrAxis[z] := 0; END_IF;
 
-	Integrator[z] := Integrator[z] + (corrAxis[z] / ((1/fCycleTime)*(32768/dps)*90*4));
+	Integrator[z] := Integrator[z] + (corrAxis[z] / ((1/fCycleTime)*(32768.0/dps)*90*4));
+		
 	Deg[z] := Integrator[z] * 360.0;
 	DegMovingHead[z] := REAL_TO_INT(Deg[z]) MOD 360;
 
@@ -289,8 +290,10 @@ fbDMX(
     </Action>
     <LineIds Name="MAIN">
       <LineId Id="594" Count="6" />
-      <LineId Id="932" Count="0" />
-      <LineId Id="602" Count="137" />
+      <LineId Id="1029" Count="0" />
+      <LineId Id="602" Count="0" />
+      <LineId Id="1032" Count="0" />
+      <LineId Id="603" Count="136" />
       <LineId Id="834" Count="3" />
       <LineId Id="35" Count="0" />
       <LineId Id="44" Count="0" />
