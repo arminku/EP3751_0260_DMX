@@ -7,6 +7,15 @@ Id;Default
 952;FThrh: %f
 88;FWeight: %f
 277;FWindow: %d
+449;gamma-angle: %d°
+421;gamma: %d°
+401;phi%d°
+842;phi: %d°
 666;Read FIFO
 614;Reset
 479;Reset Winkel
+321;Set Zero Position
+225;theta: %d°
+791;X-rotation: %.3f
+325;Y-rotation: %.3f
+358;Z-rotation: %.3f
